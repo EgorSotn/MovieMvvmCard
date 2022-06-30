@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="movieResult"
+            type="com.example.moviecard.model.Result" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageMovie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            bind:poster_path="@{movieResult.posterPath}"
+            app:layout_constraintBottom_toTopOf="@+id/nameMovieTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:textSize="18sp"
+            android:id="@+id/nameMovieTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{movieResult.title}"
+            android:layout_marginTop="40sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageMovie"/>
+
+        <TextView
+            android:id="@+id/ratingMovieTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@{movieResult.overview.toString()}"
+            app:layout_constraintTop_toBottomOf="@+id/nameMovieTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20sp"/>
+
+        <TextView
+            android:id="@+id/descriptionMovieTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:text="@{movieResult.overview}"
+            android:layout_marginTop="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/ratingMovieTextView"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/favorites_products"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageMovie" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
